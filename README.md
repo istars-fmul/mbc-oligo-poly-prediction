@@ -67,3 +67,5 @@ Restricted project data and saved analysis results require authorised access to 
 No credentials, passwords or access tokens should be stored in this repository.
 
 ## Contact
+
+For questions about the workflow or analysis code, open an issue in this repository.
