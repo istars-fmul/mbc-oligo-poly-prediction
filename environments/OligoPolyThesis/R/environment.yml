@@ -1,0 +1,27 @@
+# Conda environment for the R-based OligoPolyThesis scripts
+# (scripts/OligoPolyThesis/run_multiplier.R, run_genomic_super_signature.R).
+#
+# Based on `conda env export -n mcpp-r --from-history`, i.e. the packages
+# explicitly requested when the environment was created (2026-08-25):
+#   conda create  -n mcpp-r -c conda-forge r-base=4.4
+#   conda install -c conda-forge -c bioconda bioconductor-plier
+#   conda install -c conda-forge -c bioconda bioconductor-genomicsupersignature
+# The bioconda channel (used by the two install commands) is added below, and
+# the requested packages are pinned to the versions installed in mcpp-r.
+# The machine-specific `prefix:` line has been removed.
+#
+# Not represented by conda: readr 2.2.0 was installed from CRAN outside conda
+# (built 2026-08-25 in mcpp-r). To match the thesis environment, install readr
+# version 2.2.0 from CRAN (or its archive) into this environment; a plain
+# install.packages("readr") would install whatever version is current.
+#
+# Exact builds of every package: environment-explicit.txt
+# Session information after loading the packages: sessionInfo.txt
+name: mcpp-r
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base=4.4.3
+  - bioconductor-plier=1.76.0
+  - bioconductor-genomicsupersignature=1.14.0

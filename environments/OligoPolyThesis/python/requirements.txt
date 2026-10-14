@@ -1,0 +1,44 @@
+# Direct Python dependencies of the retained OligoPolyThesis notebooks and scripts.
+# Versions pinned from the thesis environment: ~/proj-mcpp-breast/.venv (Python 3.12.3).
+# lightgbm is not imported directly but is required by flaml[automl].
+# The complete environment is recorded in requirements-freeze.txt.
+
+# Core data handling
+numpy==2.4.4
+pandas==2.3.3
+scipy==1.17.1
+joblib==1.5.3
+threadpoolctl==3.6.0
+
+# Modelling
+scikit-learn==1.7.2
+xgboost==2.1.4
+lightgbm==4.7.0
+flaml==2.6.0
+imbalanced-learn==0.14.2
+
+# Deep learning (METABRIC-based representations, Tybalt encoders)
+tensorflow==2.21.0
+keras==3.15.1
+h5py==3.14.0
+
+# Interpretation, statistics and survival
+shap==0.52.0
+statsmodels==0.14.6
+lifelines==0.30.3
+umap-learn==0.5.12
+
+# Figures
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.7.0
+
+# Gene annotation
+mygene==3.2.2
+requests==2.33.1
+
+# Notebook kernel
+ipykernel==7.2.0
+ipython==9.12.0
+
+# Optional: kaleido==0.2.1 is only needed to export plotly figures to image files.

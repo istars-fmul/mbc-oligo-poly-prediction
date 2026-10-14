@@ -138,6 +138,58 @@ The FLAML execution flags, including `RUN_FLAML` and `RUN_FULL_COHORT_FLAML`, ar
 
 FLAML must be installed for `utils_ml_oligopoly.py` to import.
 
+## Software and environments
+
+The analyses were run on the iSTARS server using two environments.
+
+**Python** (notebooks and the Python scripts): Python 3.12.3 in the virtual environment `~/proj-mcpp-breast/.venv`.
+
+```bash
+source ~/proj-mcpp-breast/.venv/bin/activate
+```
+
+When rerunning notebooks in VS Code or Jupyter on iSTARS, select the kernel **"Python (.venv proj-mcpp-breast)"**; some notebooks retain historical kernel metadata that may show a different name.
+
+**R** (`run_multiplier.R`, `run_genomic_super_signature.R`): the conda environment `mcpp-r`, with R 4.4.3 and Bioconductor 3.20.
+
+```bash
+conda activate mcpp-r
+```
+
+Both R scripts install missing packages automatically. To reproduce the thesis results, use the recorded `mcpp-r` environment rather than relying on this fallback, which would install the current package versions.
+
+| Software / package | Version |
+|---|---:|
+| Python | 3.12.3 |
+| NumPy | 2.4.4 |
+| pandas | 2.3.3 |
+| SciPy | 1.17.1 |
+| scikit-learn | 1.7.2 |
+| XGBoost | 2.1.4 |
+| LightGBM | 4.7.0 |
+| FLAML | 2.6.0 |
+| imbalanced-learn | 0.14.2 |
+| SHAP | 0.52.0 |
+| lifelines | 0.30.3 |
+| statsmodels | 0.14.6 |
+| TensorFlow | 2.21.0 |
+| Keras | 3.15.1 |
+| matplotlib | 3.10.8 |
+| R | 4.4.3 |
+| Bioconductor | 3.20 |
+| GenomicSuperSignature | 1.14.0 |
+| PLIER | 0.99.0 |
+
+The complete environment specifications are stored in `environments/OligoPolyThesis/`:
+
+- `python/requirements.txt`: direct Python dependencies of the thesis code;
+- `python/requirements-freeze.txt`: complete package list of the Python environment;
+- `R/environment.yml`: conda specification of `mcpp-r`;
+- `R/environment-explicit.txt`: exact conda package builds;
+- `R/sessionInfo.txt`: R session information after loading the thesis R packages.
+
+Some resources are stored separately on the iSTARS server, including the pretrained MultiPLIER model and GenomicSuperSignature RAV model used by the R scripts, and the pretrained Tybalt models used by `run_tybalt.py`. Rerunning the full workflow also requires access to the server-side datasets and saved results.
+
 ## Reproducibility notes
 
 - Randomised splits, samplers and models use fixed seeds where applicable, with seed 42 used throughout the main analyses.
