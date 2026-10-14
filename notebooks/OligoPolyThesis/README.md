@@ -36,25 +36,25 @@ Notebook names are shortened below for readability.
 
 | Thesis analysis | Notebook | Supporting script(s) | Main result location |
 |---|---|---|---|
-| Clinical QC and preprocessing (§3.2) | `20260401-qc_…`, `20260401-preprocessing_…` | — | iSTARS server |
-| Mutation QC and Phi/Fisher redundancy (§3.3) | `20260505_Mutation_QC_…` | `mutation_phi_fisher_analysis.py` | iSTARS server |
-| TPM preprocessing (§3.1.2) | `20260707-preprocessing-tpm-…` | — | iSTARS server |
-| Clinical model (§4.2.1) | `20260601-modeling-clinical-data` | — | `RESULTS/Common-Cohort-Modality-Comparison/` and full-availability outputs |
-| Mutation model (§4.2.2) | `20260601-modeling-mutation` | — | `RESULTS/Common-Cohort-Modality-Comparison/` and full-availability outputs |
-| Clinical + mutation (§4.2.3) | `20260702-modeling-clinical-mutation-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
-| Transcriptomic model and representation benchmark (§4.2.4, §4.4.1–4.4.2) | `20260710-representation-learning-tpm-…` | `run_tybalt.py`, `run_multiplier.R`, `run_genomic_super_signature.R` | `RESULTS/Transcriptomics-Representation-Learning/`; N=110 results in `RESULTS/Common-Cohort-Modality-Comparison/` |
-| METABRIC VAE/HVAE (§4.4.3) | `20260729-…-METABRIC-IntegrativeVAE-…` | — | `RESULTS/Transcriptomics-Representation-Learning/METABRIC-IntegrativeVAE/` |
-| moBRCA-net-inspired attention (§4.4.3) | `20260730-…-moBRCAnet-attention-…` | — | `RESULTS/Transcriptomics-BC-Specific-Representations/moBRCA-net-Attention/` |
-| Rostami-inspired autoencoder (§4.4.3) | `20260731-…-rostami-autoencoder-…` | — | `RESULTS/Transcriptomics-BC-Specific-Representations/Rostami-Autoencoder/` |
-| Clinical + transcriptomics (§4.2.4) | `20260929-modeling-clinical-transcriptomics-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
-| Mutation + transcriptomics (§4.2.4) | `20260929-modeling-mutation-transcriptomics-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
-| Three-modality model (§4.3) | `20260825-modeling-clinical-mutation-transcriptomics` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
-| Common-cohort summary (§4.1, Table 4.1, Figure 4.1, Tables A.1–A.2) | `20260913-summary-of-model-results-oligopoly` | `utils_ml_oligopoly.py` | `RESULTS/Common-Cohort-Modality-Comparison/` |
-| Common-cohort interpretation and selection of the eight genes (§3.10, Table 4.18) | `20260924-common-cohort-model-interpretation-oligopoly` | — | `RESULTS/Common-Cohort-Modality-Comparison/primary_110/interpretation/` and `RESULTS/Common-Cohort-Modality-Comparison/reconstruction/` |
-| Expression differences (§4.6.1, Figures 4.15–4.16) | `20260924-mcpp-model-prioritized-gene-expression-…` | — | `RESULTS/MCPP-Biological-Characterization/common-110/harmonised_main8/` |
+| Clinical QC and preprocessing (3.2) | `20260401-qc_…`, `20260401-preprocessing_…` | — | iSTARS server |
+| Mutation QC and Phi/Fisher redundancy (3.3) | `20260505_Mutation_QC_…` | `mutation_phi_fisher_analysis.py` | iSTARS server |
+| TPM preprocessing (3.1.2) | `20260707-preprocessing-tpm-…` | — | iSTARS server |
+| Clinical model (4.2.1) | `20260601-modeling-clinical-data` | — | `RESULTS/Common-Cohort-Modality-Comparison/` and full-availability outputs |
+| Mutation model (4.2.2) | `20260601-modeling-mutation` | — | `RESULTS/Common-Cohort-Modality-Comparison/` and full-availability outputs |
+| Clinical + mutation (4.2.3) | `20260702-modeling-clinical-mutation-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
+| Transcriptomic model and representation benchmark (4.2.4, 4.4.1–4.4.2) | `20260710-representation-learning-tpm-…` | `run_tybalt.py`, `run_multiplier.R`, `run_genomic_super_signature.R` | `RESULTS/Transcriptomics-Representation-Learning/`; N=110 results in `RESULTS/Common-Cohort-Modality-Comparison/` |
+| METABRIC VAE/HVAE (4.4.3) | `20260729-…-METABRIC-IntegrativeVAE-…` | — | `RESULTS/Transcriptomics-Representation-Learning/METABRIC-IntegrativeVAE/` |
+| moBRCA-net-inspired attention (4.4.3) | `20260730-…-moBRCAnet-attention-…` | — | `RESULTS/Transcriptomics-BC-Specific-Representations/moBRCA-net-Attention/` |
+| Rostami-inspired autoencoder (4.4.3) | `20260731-…-rostami-autoencoder-…` | — | `RESULTS/Transcriptomics-BC-Specific-Representations/Rostami-Autoencoder/` |
+| Clinical + transcriptomics (4.2.4) | `20260929-modeling-clinical-transcriptomics-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
+| Mutation + transcriptomics (4.2.4) | `20260929-modeling-mutation-transcriptomics-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
+| Three-modality model (4.3) | `20260825-modeling-clinical-mutation-transcriptomics` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
+| Common-cohort summary (4.1, Table 4.1, Figure 4.1, Tables A.1–A.2) | `20260913-summary-of-model-results-oligopoly` | `utils_ml_oligopoly.py` | `RESULTS/Common-Cohort-Modality-Comparison/` |
+| Common-cohort interpretation and selection of the eight genes (3.10, Table 4.18) | `20260924-common-cohort-model-interpretation-oligopoly` | — | `RESULTS/Common-Cohort-Modality-Comparison/primary_110/interpretation/` and `RESULTS/Common-Cohort-Modality-Comparison/reconstruction/` |
+| Expression differences (4.6.1, Figures 4.15–4.16) | `20260924-mcpp-model-prioritized-gene-expression-…` | — | `RESULTS/MCPP-Biological-Characterization/common-110/harmonised_main8/` |
 | Expression–SHAP relationships (Figure 4.17) | `20261002-expression-shap-survival-context-…` | — | `RESULTS/MCPP-Biological-Characterization/common-110/harmonised_main8/` |
-| Overall survival (§4.6.3, Figures 4.18–4.19, Table 4.20) | `20260924-mcpp-metastatic-overall-survival` | — | `RESULTS/MCPP-Biological-Characterization/common-110/survival/` |
-| TCGA-BRCA PFI and DSS (§4.6.4, Table 4.21, Figure 4.20) | `20260922-tcga-brca-prognostic-relevance-…` | — | `RESULTS/TCGA-BRCA-Prognostic-Relevance/main8/` |
+| Overall survival (4.6.3, Figures 4.18–4.19, Table 4.20) | `20260924-mcpp-metastatic-overall-survival` | — | `RESULTS/MCPP-Biological-Characterization/common-110/survival/` |
+| TCGA-BRCA PFI and DSS (4.6.4, Table 4.21, Figure 4.20) | `20260922-tcga-brca-prognostic-relevance-…` | — | `RESULTS/TCGA-BRCA-Prognostic-Relevance/main8/` |
 
 ## Suggested reading / execution order
 
