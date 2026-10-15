@@ -9,8 +9,8 @@
 # the requested packages are pinned to the versions installed in mcpp-r.
 # The machine-specific `prefix:` line has been removed.
 #
-# Not represented by conda: readr 2.2.0 was installed from CRAN outside conda
-# (built 2026-08-25 in mcpp-r). To match the thesis environment, install readr
+# Not represented by conda: readr 2.2.0 was installed from CRAN outside conda.
+# To match the thesis environment, install readr
 # version 2.2.0 from CRAN (or its archive) into this environment; a plain
 # install.packages("readr") would install whatever version is current.
 #
