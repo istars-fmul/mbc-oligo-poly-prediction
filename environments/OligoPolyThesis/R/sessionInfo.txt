@@ -1,6 +1,5 @@
 # R session information for the OligoPolyThesis R environment
 # Source: conda environment mcpp-r (~/mcpp-r/lib/R)
-# Generated: 2026-10-14 with Rscript --vanilla after library(GenomicSuperSignature, PLIER, dplyr, readr, stringr, tibble)
 # Bioconductor version (BiocVersion): 3.20.0 
 # readr 2.2.0 was installed from CRAN outside conda.
 
