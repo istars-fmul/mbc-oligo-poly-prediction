@@ -1,8 +1,7 @@
 # Conda environment for the retained OligoPolyThesis notebooks and scripts.
 # Mirrors the thesis environment: python environment .venv (Python 3.12.3) in conda.
 # Python comes from conda; the pinned packages are installed with pip so the
-# exact versions from the venv are reproduced (several aren't on conda-forge
-# at these versions).
+# exact versions from the venv are reproduced
 #
 # Create:   conda env create -f environment.yml
 # Activate: conda activate mcpp-python
