@@ -1,5 +1,5 @@
 # Exact conda package builds of the OligoPolyThesis R environment
-# Source: conda environment mcpp-r (/home/martapimentel/miniforge3/envs/mcpp-r)
+# Source: conda environment mcpp-r
 # Generated: 2026-10-14 with: conda list -n mcpp-r --explicit --md5
 # Note: readr 2.2.0 was installed from CRAN outside conda and is therefore not listed here.
 # This file may be used to create an environment using:
