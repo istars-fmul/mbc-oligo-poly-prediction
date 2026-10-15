@@ -1,5 +1,5 @@
 # Direct Python dependencies of the retained OligoPolyThesis notebooks and scripts.
-# Versions pinned from the thesis environment: ~/proj-mcpp-breast/.venv (Python 3.12.3).
+# Versions pinned from the thesis environment: ~/.venv (Python 3.12.3).
 # lightgbm is not imported directly but is required by flaml[automl].
 # The complete environment is recorded in requirements-freeze.txt.
 
