@@ -5,30 +5,27 @@
 This folder contains the notebooks for the MSc thesis *Predictive Modelling and Stratification of Metastatic Breast Cancer Patients* (Instituto Superior Técnico, October 2026).
 
 The thesis investigates whether clinical variables, somatic mutations from whole-exome sequencing (WES), and RNA-seq expression from the primary tumour can distinguish patients with oligometastatic (OMD) from polymetastatic (PMD) disease at first metastatic diagnosis.
-
 The analyses include modality-specific modelling, multimodal integration, transcriptomic representation learning, model interpretation, and subsequent biological and prognostic characterisation.
 
-The notebooks retain their displayed outputs. Large datasets, saved model outputs and analysis results are stored on the iSTARS server and are not included in this Git repository.
-
-Throughout this README, `RESULTS/` refers to the main thesis results directory on the iSTARS server.
+The notebooks retain their displayed outputs, whereas large datasets, saved model outputs and analysis results are stored on the iSTARS server and are not made available to the public.
 
 ## Scope
 
-| Location | Contents |
-|---|---|
-| `notebooks/OligoPolyThesis/` | Analysis notebooks for the MSc thesis |
-| `scripts/OligoPolyThesis/` | Shared utility module, representation-generation scripts and supporting configuration files |
-| `RESULTS/` | Saved thesis model outputs and analysis results on the iSTARS server |
+| Location | Directory | Contents |
+|---|---|---|
+| Repository (Public) | `mbc-oligo-poly-prediction/environments/OligoPolyThesis/` | Complete specifications of the environments used (Python and R) |
+| Repository (Public) | `mbc-oligo-poly-prediction/notebooks/OligoPolyThesis/` | Analysis notebooks for the MSc thesis |
+| Repository (Public) | `mbc-oligo-poly-prediction/scripts/OligoPolyThesis/` | Shared utility module, representation-generation scripts and supporting configuration files |
+| iSTARS server (private) | `/mnt/data3/MCPP-Breast/` | Multimodal input and preprocessed data |
+| iSTARS server (private) | `/mnt/data3/MCPP-Breast/Machine-Learning-Models-poly_vs_oligo/` | Saved thesis model outputs and analysis results |
 
-Preprocessed clinical, mutation and transcriptomic inputs are also stored on the iSTARS server.
+Throughout this README, `DATA/` refers to `/mnt/data3/MCPP-Breast/` and `RESULTS/` to `/mnt/data3/MCPP-Breast/Machine-Learning-Models-poly_vs_oligo/`. For example, `RESULTS/figures/` means `/mnt/data3/MCPP-Breast/Machine-Learning-Models-poly_vs_oligo/figures/`.
 
 ## Terminology
 
-- **Common cohort (N=110)**: the shared cohort of 110 patients (43 OMD and 67 PMD) with complete clinical, mutation and transcriptomic data. The primary modality comparison uses identical frozen outer folds across all configurations.
+- **Common cohort (N=110)**: the shared cohort of 110 patients (43 OMD and 67 PMD) with complete clinical, mutation and transcriptomic data, for direct and fair comparison between data modalities and models.
 - **Full availability**: modality-specific analyses using all eligible patients: clinical N=149, mutation N=112 and transcriptomics N=139.
-- **Eight model-prioritised genes**: H3C14, KIAA2012, MYEOV, TMPRSS4, ZNF549, GDAP1, RUNDC3B and ZNF205.
-
-Some internal result paths and filenames retain historical names, including `primary_110`, `harmonised_main8` and `main8`. These are kept for compatibility with the saved analysis outputs and do not represent separate analyses.
+- **Eight model-prioritised genes**: _H3C14_, _KIAA2012_, _MYEOV_, _TMPRSS4_, _ZNF549_, _GDAP1_, _RUNDC3B_ and _ZNF205_.
 
 ## Analysis map
 
@@ -36,9 +33,9 @@ Notebook names are shortened below for readability.
 
 | Thesis analysis | Notebook | Supporting script(s) | Main result location |
 |---|---|---|---|
-| Clinical QC and preprocessing (3.2) | `20260401-qc_…`, `20260401-preprocessing_…` | — | iSTARS server |
-| Mutation QC and Phi/Fisher redundancy (3.3) | `20260505_Mutation_QC_…` | `mutation_phi_fisher_analysis.py` | iSTARS server |
-| TPM preprocessing (3.1.2) | `20260707-preprocessing-tpm-…` | — | iSTARS server |
+| Clinical QC and preprocessing (3.2) | `20260401-qc_…`, `20260401-preprocessing_…` | — | `DATA/Clinical-Data/` |
+| Mutation QC and Phi/Fisher redundancy (3.3) | `20260505_Mutation_QC_…` | `mutation_phi_fisher_analysis.py` | `DATA/Mutation-Data/` |
+| TPM preprocessing (3.1.2) | `20260707-preprocessing-tpm-…` | — | `DATA/Transcriptomic-Data` |
 | Clinical model (4.2.1) | `20260601-modeling-clinical-data` | — | `RESULTS/Common-Cohort-Modality-Comparison/` and full-availability outputs |
 | Mutation model (4.2.2) | `20260601-modeling-mutation` | — | `RESULTS/Common-Cohort-Modality-Comparison/` and full-availability outputs |
 | Clinical + mutation (4.2.3) | `20260702-modeling-clinical-mutation-…` | — | `RESULTS/Common-Cohort-Modality-Comparison/` |
@@ -87,19 +84,7 @@ They were produced using functions in:
 
     scripts/OligoPolyThesis/utils_ml_oligopoly.py
 
-The main generation steps are:
-
-    load_common_sources
-    initialise_common_output
-    prepare_training_partitions
-    run_common_comparison
-    summarise_common_results
-
-The notebooks primarily read the completed outputs through `load_primary110`, which checks the saved results against the locked input files, patient set, fold assignments and completed-unit records.
-
-The frozen outer-fold assignments originate from an earlier three-modality prediction file retained on the iSTARS server as the frozen-fold source.
-
-`common_cohort_protocol.json` records the analysis protocol and locked input files, while `common_cohort_completion_report.md` records validation of the completed comparison.
+The notebooks primarily read the completed outputs through `load_primary110`, which checks the saved results against the locked input files, patient set, fold assignments and completed-unit records. The frozen outer-fold assignments originate from an earlier three-modality prediction file retained on the iSTARS server as the frozen-fold source.
 
 ## Scripts
 
@@ -131,21 +116,56 @@ The clinical (`20260601`), mutation (`20260601`), transcriptomic (`20260710`) an
 
 ## Software and environments
 
-The analyses were run on the iSTARS server using two environments.
+The analyses were run on the iSTARS server using two environments, their complete specifications are stored in `environments/OligoPolyThesis/`.
 
-**Python** (notebooks and the Python scripts): conda environment `cpp-python`, with Python 3.12.3.
+**Python** (notebooks and the Python scripts): Python 3.12.3. Use either a conda environment (`mcpp-python`) or a virtual environment (`.venv`).
+
+*Option 1 – conda*
 
 ```bash
+conda env create -f environments/OligoPolyThesis/Python/environment.yml
 conda activate mcpp-python
 ```
 
-**R** (`run_multiplier.R`, `run_genomic_super_signature.R`): the conda environment `mcpp-r`, with R 4.4.3 and Bioconductor 3.20.
+*Option 2 – venv* (requires Python 3.12.3 installed on the system)
 
 ```bash
+python3.12 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r environments/OligoPolyThesis/Python/requirements.txt
+```
+
+To reproduce the exact thesis environment, install from `environments/OligoPolyThesis/Python/requirements-freeze.txt` instead.
+If you use Jupyter, register the environment as a kernel (optional; VS Code detects it automatically):
+
+```bash
+python -m ipykernel install --user --name mcpp-python
+```
+
+**R** (`run_multiplier.R`, `run_genomic_super_signature.R`): R 4.4.3 with Bioconductor 3.20, in the conda environment `mcpp-r`.
+
+*Option 1 – environment file (any platform)*
+
+```bash
+conda env create -f environments/OligoPolyThesis/R/environment.yml
 conda activate mcpp-r
 ```
 
-Both R scripts install missing packages automatically. To reproduce the thesis results, use the recorded `mcpp-r` environment rather than relying on this fallback, which would install the current package versions.
+*Option 2 – exact package builds (Linux x86-64 only)*
+
+```bash
+conda create --name mcpp-r --file environments/OligoPolyThesis/R/environment-explicit.txt
+conda activate mcpp-r
+```
+
+*Then, for both options*, install readr 2.2.0 from CRAN (not available through conda):
+
+```bash
+Rscript -e 'install.packages("remotes", repos = "https://cloud.r-project.org"); remotes::install_version("readr", version = "2.2.0", repos = "https://cloud.r-project.org")'
+```
+Package versions loaded during the thesis runs are recorded in `environments/OligoPolyThesis/R/sessionInfo.txt`.
+
+Both R scripts install missing packages automatically, to reproduce the exact thesis results, use the recorded `mcpp-r` environment rather than relying on this fallback, which would install the current package versions.
 
 | Software / package | Version |
 |---|---:|
@@ -169,18 +189,8 @@ Both R scripts install missing packages automatically. To reproduce the thesis r
 | GenomicSuperSignature | 1.14.0 |
 | PLIER | 0.99.0 |
 
-The complete environment specifications are stored in `environments/OligoPolyThesis/`:
-
-- `python/requirements.txt`: direct Python dependencies of the thesis code;
-- `python/requirements-freeze.txt`: complete package list of the Python environment;
-- `R/environment.yml`: conda specification of `mcpp-r`;
-- `R/environment-explicit.txt`: exact conda package builds;
-- `R/sessionInfo.txt`: R session information after loading the thesis R packages.
-
 ## Reproducibility notes
 
 - Randomised splits, samplers and models use fixed seeds where applicable, with seed 42 used throughout the main analyses.
 - Most notebooks contain `RUN_*` flags that determine whether saved results are loaded or analyses are recomputed (Check these flags before using **Run All**.)
-- Some representation-learning notebooks contain flags that can trigger source preparation, model fitting or attribution calculations.
-- Large saved results and the multimodal data (clinical, transcriptomic and mutation) are not publicly available.
-- Rerunning the full workflow requires access to the server-side datasets and saved results.
+- Large saved results and the multimodal data (clinical, transcriptomic and mutation) are not publicly available. Rerunning the full workflow requires access to the server-side datasets and saved results.
