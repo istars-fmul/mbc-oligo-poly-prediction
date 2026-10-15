@@ -1,8 +1,7 @@
 # Conda environment for the R-based OligoPolyThesis scripts
 # (scripts/OligoPolyThesis/run_multiplier.R, run_genomic_super_signature.R).
 #
-# Based on `conda env export -n mcpp-r --from-history`, i.e. the packages
-# explicitly requested when the environment was created (2026-08-25):
+# The packages explicitly requested when the environment was created:
 #   conda create  -n mcpp-r -c conda-forge r-base=4.4
 #   conda install -c conda-forge -c bioconda bioconductor-plier
 #   conda install -c conda-forge -c bioconda bioconductor-genomicsupersignature
