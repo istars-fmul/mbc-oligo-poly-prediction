@@ -118,37 +118,26 @@ Supporting files:
 
 ## Results
 
-The code and notebooks are stored in Git.
+The code and notebooks are stored in the Git repository, whereas large datasets, saved model outputs and analysis results are only stored on the iSTARS server.
 
-Large datasets, saved model outputs and analysis results are stored on the iSTARS server and are not included in this repository.
-
-The notebooks retain their displayed outputs, allowing the main figures and tables to be inspected without rerunning the analyses.
-
-The retained reconstruction outputs contain fold-specific selected-feature information used in the thesis tables.
+The notebooks retain their displayed outputs, allowing the main figures and tables, including the ones presented on the thesis document, to be inspected without rerunning the analyses.
+Saved outputs contain fold-specific selected-feature information used in the thesis tables which are not included on the notebooks.
 
 For the common-cohort interpretation analyses, the fitted pipelines are not retained. The interpretation notebook instead reads the saved coefficients, feature importances and SHAP outputs.
 
 ## Supplementary FLAML analyses
 
-The clinical (`20260601`), mutation (`20260601`), transcriptomic (`20260710`) and METABRIC-representation (`20260729`, `20260730`, `20260731`) notebooks contain supplementary FLAML (AutoML) comparisons.
-
-These are methodological/model-selection analyses and are not reported in the submitted thesis.
-
-The FLAML execution flags, including `RUN_FLAML` and `RUN_FULL_COHORT_FLAML`, are intentionally set to `False`.
-
-FLAML must be installed for `utils_ml_oligopoly.py` to import.
+The clinical (`20260601`), mutation (`20260601`), transcriptomic (`20260710`) and METABRIC-representation (`20260729`, `20260730`, `20260731`) notebooks contain supplementary FLAML (AutoML) comparisons. These are methodological/model-selection analyses and are not reported in the submitted thesis since the performance was lower than the pipeline reported.
 
 ## Software and environments
 
 The analyses were run on the iSTARS server using two environments.
 
-**Python** (notebooks and the Python scripts): Python 3.12.3 in the virtual environment `~/proj-mcpp-breast/.venv`.
+**Python** (notebooks and the Python scripts): conda environment `cpp-python`, with Python 3.12.3.
 
 ```bash
-source ~/proj-mcpp-breast/.venv/bin/activate
+conda activate mcpp-python
 ```
-
-When rerunning notebooks in VS Code or Jupyter on iSTARS, select the kernel **"Python (.venv proj-mcpp-breast)"**; some notebooks retain historical kernel metadata that may show a different name.
 
 **R** (`run_multiplier.R`, `run_genomic_super_signature.R`): the conda environment `mcpp-r`, with R 4.4.3 and Bioconductor 3.20.
 
@@ -188,14 +177,10 @@ The complete environment specifications are stored in `environments/OligoPolyThe
 - `R/environment-explicit.txt`: exact conda package builds;
 - `R/sessionInfo.txt`: R session information after loading the thesis R packages.
 
-Some resources are stored separately on the iSTARS server, including the pretrained MultiPLIER model and GenomicSuperSignature RAV model used by the R scripts, and the pretrained Tybalt models used by `run_tybalt.py`. Rerunning the full workflow also requires access to the server-side datasets and saved results.
-
 ## Reproducibility notes
 
 - Randomised splits, samplers and models use fixed seeds where applicable, with seed 42 used throughout the main analyses.
-- The primary N=110 common-cohort analyses use the same frozen outer folds across all seven input configurations.
-- Most notebooks contain `RUN_*` flags that determine whether saved results are loaded or analyses are recomputed.
-- Check these flags before using **Run All**.
+- Most notebooks contain `RUN_*` flags that determine whether saved results are loaded or analyses are recomputed (Check these flags before using **Run All**.)
 - Some representation-learning notebooks contain flags that can trigger source preparation, model fitting or attribution calculations.
-- Large saved results and restricted patient-level data are not distributed through Git.
-- Earlier temporary runtime directories, caches and duplicate figure-export directories are not required for reading the retained thesis results.
+- Large saved results and the multimodal data (clinical, transcriptomic and mutation) are not publicly available.
+- Rerunning the full workflow requires access to the server-side datasets and saved results.
