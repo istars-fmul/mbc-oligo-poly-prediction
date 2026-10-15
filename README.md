@@ -15,32 +15,35 @@ Large datasets, saved model outputs and analysis results are stored separately o
 
 ## Directory structure
 
-    ├── Makefile           <- Makefile with project commands
-    ├── README.md          <- Top-level project documentation
+    ├── Makefile             <- Makefile with project commands
+    ├── README.md            <- Top-level project documentation
     │
-    ├── docker             <- Docker and VM configuration
+    ├── environments         <- Environments 
+    │   └── OligoPolyThesis/ <- MSc thesis environments (packages and versions)
+    |       └── R/
+    |       └── python/
+    |
+    ├── docker               <- Docker and VM configuration
     │
-    ├── logs               <- Log files
+    ├── logs                 <- Log files
     │
-    ├── notebooks          <- Jupyter notebooks
-    │   └── OligoPolyThesis/
-    │                      <- MSc thesis notebooks
+    ├── notebooks            <- Jupyter notebooks
+    │   └── OligoPolyThesis/ <- MSc thesis notebooks
     │
-    ├── outputs            <- Project outputs stored in the repository, when applicable
+    ├── outputs              <- Project outputs stored in the repository, when applicable
     │
-    ├── params.yaml        <- Configuration parameters
+    ├── params.yaml          <- Configuration parameters
     │
-    ├── pipelines          <- Project pipelines
+    ├── pipelines            <- Project pipelines
     │
-    ├── resources          <- Additional project resources
+    ├── resources            <- Additional project resources
     │
-    ├── scripts            <- Project scripts
-    │   └── OligoPolyThesis/
-    │                      <- MSc thesis utilities and supporting scripts
+    ├── scripts              <- Project scripts
+    │   └── OligoPolyThesis/ <- MSc thesis utilities and supporting scripts
+    │                        
+    ├── src                  <- Shared project source code
     │
-    ├── src                <- Shared project source code
-    │
-    └── tests              <- Test modules
+    └── tests                <- Test modules
 
 ## Prerequisites
 
