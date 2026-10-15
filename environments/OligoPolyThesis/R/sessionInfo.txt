@@ -1,15 +1,15 @@
 # R session information for the OligoPolyThesis R environment
-# Source: conda environment mcpp-r (/home/martapimentel/miniforge3/envs/mcpp-r/lib/R)
+# Source: conda environment mcpp-r (~/mcpp-r/lib/R)
 # Generated: 2026-10-14 with Rscript --vanilla after library(GenomicSuperSignature, PLIER, dplyr, readr, stringr, tibble)
 # Bioconductor version (BiocVersion): 3.20.0 
 # readr 2.2.0 was installed from CRAN outside conda.
 
-R version 4.4.3 (2025-02-28)
+R version 4.4.3 
 Platform: x86_64-conda-linux-gnu
 Running under: Ubuntu 24.04.4 LTS
 
 Matrix products: default
-BLAS/LAPACK: /home/martapimentel/miniforge3/envs/mcpp-r/lib/libopenblasp-r0.3.34.so;  LAPACK version 3.12.0
+BLAS/LAPACK: ~/mcpp-r/lib/libopenblasp-r0.3.34.so;  LAPACK version 3.12.0
 
 locale:
  [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
