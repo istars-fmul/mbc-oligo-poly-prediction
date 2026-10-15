@@ -1,5 +1,5 @@
 # Full pip freeze of the OligoPolyThesis Python environment
-# Source: /home/martapimentel/.venv (Python 3.12.3)
+# Source: ~/.venv (Python 3.12.3)
 absl-py==2.5.0
 anyio==4.13.0
 asttokens==3.0.1
